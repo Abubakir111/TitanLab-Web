@@ -71,7 +71,6 @@ const productMain = document.getElementById('product__main');
 const productAddBasketBtn = document.getElementById('product__add-basket_btn');
 const reviewBlockBtns = document.querySelectorAll('.review__more_btn');
 const burgermenuNavs = document.querySelectorAll('.burger-modal-li a');
-console.log(burgermenuNavs);
 
 if (!localStorage.getItem('productData')) localStorage.setItem('productData', JSON.stringify([]));
 else basketCount.textContent = JSON.parse(localStorage.getItem('productData')).length;
@@ -1288,7 +1287,6 @@ burgermenuNavs.forEach((el) => {
       const blockId = el.getAttribute('href').substring(1);
       const blockSection = document.getElementById(blockId);
       let test_block = blockSection.offsetTop;
-      console.log(test_block);
       window.scrollTo({
         top: test_block - 100,
         behavior: 'smooth'
@@ -1296,7 +1294,6 @@ burgermenuNavs.forEach((el) => {
     }, 12);
   });
 });
-const centeredBlocksScroll = () => {};
 document.addEventListener('DOMContentLoaded', () => {
   const navbarLinks = document.querySelectorAll('.navbar a');
   window.addEventListener('scroll', () => {
