@@ -1156,7 +1156,7 @@ const basketProductHtml = (basketModlContent, storageProduct) => {
 
 const closeForm = () => (document.getElementById('myForm').style.display = 'none ');
 const openMobalBurger = () => {
-  if (basketModl.style.display == 'block') basketModl.style.display = 'none';
+  if (basketModl.style.display == 'flex') basketModl.style.display = 'none';
   mobilBurgerModal.style.display = 'block';
 };
 const closeMobalBurger = () => (mobilBurgerModal.style.display = 'none');
