@@ -70,6 +70,8 @@ const navItem = document.querySelectorAll('.nav-item');
 const productMain = document.getElementById('product__main');
 const productAddBasketBtn = document.getElementById('product__add-basket_btn');
 const reviewBlockBtns = document.querySelectorAll('.review__more_btn');
+const burgermenuNavs = document.querySelectorAll('.burger-modal-li a');
+console.log(burgermenuNavs);
 
 if (!localStorage.getItem('productData')) localStorage.setItem('productData', JSON.stringify([]));
 else basketCount.textContent = JSON.parse(localStorage.getItem('productData')).length;
@@ -1280,7 +1282,21 @@ function submitForm() {
   xhr.open('POST ', 'submit.php ', true);
   xhr.send(formData);
 }
-
+burgermenuNavs.forEach((el) => {
+  el.addEventListener('click', () => {
+    setTimeout(() => {
+      const blockId = el.getAttribute('href').substring(1);
+      const blockSection = document.getElementById(blockId);
+      let test_block = blockSection.offsetTop;
+      console.log(test_block);
+      window.scrollTo({
+        top: test_block - 100,
+        behavior: 'smooth'
+      });
+    }, 12);
+  });
+});
+const centeredBlocksScroll = () => {};
 document.addEventListener('DOMContentLoaded', () => {
   const navbarLinks = document.querySelectorAll('.navbar a');
   window.addEventListener('scroll', () => {
@@ -1316,6 +1332,21 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           offset = 200; // Если скролл был инициирован нажатием на кнопку навигации
         }
+        const targetSectionTop = targetSection.offsetTop - navbarHeight - offset;
+        const targetSectionBottom = targetSectionTop + targetSection.offsetHeight;
+        // if (targetId === 'contact') {
+        //   offset += 700; // Больший отступ для раздела "Контакты"
+        // }
+
+        if (scrollPosition >= targetSectionTop && scrollPosition < targetSectionBottom) {
+          updateAnimationPosition(link);
+          navbarLinks.forEach((link) => link.classList.remove('active'));
+          link.classList.add('active');
+        } else if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+          updateAnimationPosition(link);
+          navbarLinks.forEach((link) => link.classList.remove('active'));
+          link.classList.add('active');
+        }
       }
     });
   }
@@ -1332,7 +1363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (targetSection) {
       const navbarHeight = document.querySelector('.navbar').offsetHeight;
       window.scrollTo({
-        top: targetSection.offsetTop - navbarHeight - 100, // Смещение на 50px вверх при скролле ручками
+        top: targetSection.offsetTop - navbarHeight - 200, // Смещение на 50px вверх при скролле ручками
         behavior: 'smooth'
       });
     }
