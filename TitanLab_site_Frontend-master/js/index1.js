@@ -132,7 +132,6 @@ const fetchData = async () => {
         productMainWrapp.style.display = 'flex';
         const newproduct = e.target.getAttribute('data-test');
         const Testproduct = JSON.parse(newproduct);
-        console.log(Testproduct);
         const { img, moreDetails, productOptionImage, title, typeOfProduct, price } = Testproduct;
         productMain.innerHTML = `
        <div class="product__img_container">
