@@ -10,6 +10,10 @@ html {
   font-family: 'Montserrat';
   src: url('../fonts/Montserrat-Regular.woff'), format('woff');
 }
+@font-face {
+  font-family: 'arialBlack';
+  src: url('../fonts/arial_black.woff'), format('woff');
+}
 body {
   width: 100%;
   font-family: Montserrat;
@@ -235,7 +239,7 @@ header {
 .brand-title {
   font-size: 50px;
   color: black;
-  font-family: 'Arial Black', Arial, sans-serif;
+  font-family: arialBlack, Arial, sans-serif;
   font-weight: bold;
 }
 .burger-menu {
@@ -365,6 +369,7 @@ header {
   letter-spacing: 12%;
   text-align: left;
   white-space: nowrap;
+  font-family: arialBlack;
 }
 .additional-info {
   color: rgb(0, 0, 0);
@@ -417,6 +422,7 @@ header {
   font-weight: 700;
   line-height: 44px;
   padding-left: 0px;
+  font-family: arialBlack;
 }
 .colored-section {
   background-color: #f0f0f0;
@@ -492,6 +498,7 @@ header {
   line-height: 24px;
   letter-spacing: 12%;
   text-align: center;
+  font-family: arialBlack;
 }
 .info-text {
   color: rgb(0, 0, 0);
@@ -673,6 +680,7 @@ header {
   line-height: 24px;
   letter-spacing: 12%;
   text-align: left;
+  font-family: arialBlack;
 }
 .documnets-container {
   display: flex;
@@ -722,6 +730,9 @@ header {
   display: flex;
   flex-direction: column;
   row-gap: 12px;
+}
+.footer-contact-info h3 {
+  font-family: arialBlack;
 }
 
 .social-icons {
